@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.so
+
+# Virtual environments
+venv/
+.venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+
+# Generated artifacts (runtime)
+compliance_report.md
+implementation_guide.md
+rollout_guide.md
+agent_prompt.md
+privacy_policy.md
+terms_of_service.md
+founder_extras.json
+
+# RAG index — regenerate with: actguard setup
+legal_rag/chroma_db/
+
+# Local session data
+.actguard/
+
+# IDE
+.idea/
+.vscode/
+
+# pytest
+.pytest_cache/

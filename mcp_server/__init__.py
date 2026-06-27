@@ -1,0 +1,1 @@
+"""ActGuard MCP server package."""

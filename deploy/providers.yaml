@@ -1,0 +1,159 @@
+# Curated EU hosting provider catalog for ActGuard deploy matcher.
+# residency_tier: 1 = EU-native, 2 = hyperscaler EU region, 3 = US PaaS with EU region opt-in
+
+providers:
+  sliplane:
+    name: Sliplane
+    residency_tier: 1
+    eu_regions: ["de", "fi"]
+    dpa_url: https://sliplane.io/legal/dpa
+    cost_band: low
+    ops_burden: low
+    fits:
+      - docker
+      - python_api
+      - split_monorepo
+      - django_monolith
+      - streamlit
+      - fullstack_container
+    not_fit:
+      - serverless_only
+      - edge_functions_only
+    notes: "Berlin-based; Hetzner infrastructure. Select DE/FI server location for EU residency."
+
+  hetzner:
+    name: Hetzner Cloud
+    residency_tier: 1
+    eu_regions: ["fsn1", "nbg1", "hel1"]
+    dpa_url: https://www.hetzner.com/legal/data-privacy-faq
+    cost_band: low
+    ops_burden: medium
+    fits:
+      - docker
+      - python_api
+      - django_monolith
+      - celery_workers
+      - gpu_inference
+      - split_monorepo
+    not_fit:
+      - serverless_only
+      - managed_nextjs_zero_config
+    notes: "EU-native IaaS; more ops than PaaS but strongest cost/residency control."
+
+  scaleway:
+    name: Scaleway
+    residency_tier: 1
+    eu_regions: ["fr-par", "nl-ams", "pl-waw"]
+    dpa_url: https://www.scaleway.com/en/privacy-policy/
+    cost_band: low
+    ops_burden: medium
+    fits:
+      - docker
+      - python_api
+      - django_monolith
+      - celery_workers
+      - gpu_inference
+    not_fit:
+      - serverless_only
+      - managed_nextjs_zero_config
+    notes: "French EU-native cloud; good for Docker workloads and GPU."
+
+  ovhcloud:
+    name: OVHcloud
+    residency_tier: 1
+    eu_regions: ["gra", "rbx", "sbg"]
+    dpa_url: https://www.ovhcloud.com/en/personal-data-protection/
+    cost_band: low
+    ops_burden: medium
+    fits:
+      - docker
+      - python_api
+      - django_monolith
+      - celery_workers
+    not_fit:
+      - serverless_only
+    notes: "French EU-native provider; VPS and managed options."
+
+  aws_eu:
+    name: AWS (eu-central-1)
+    residency_tier: 2
+    eu_regions: ["eu-central-1", "eu-west-1", "eu-west-3"]
+    dpa_url: https://aws.amazon.com/compliance/gdpr-center/
+    cost_band: medium
+    ops_burden: high
+    fits:
+      - boto3_locked
+      - enterprise
+      - celery_workers
+      - gpu_inference
+    not_fit:
+      - zero_ops_startup
+    notes: "Use when AWS SDK already in codebase; pin all resources to EU regions."
+
+  gcp_eu:
+    name: Google Cloud (europe-west3)
+    residency_tier: 2
+    eu_regions: ["europe-west3", "europe-west1", "europe-west4"]
+    dpa_url: https://cloud.google.com/privacy/gdpr
+    cost_band: medium
+    ops_burden: high
+    fits:
+      - gcp_locked
+      - enterprise
+      - gpu_inference
+    not_fit:
+      - zero_ops_startup
+    notes: "Use when Google Cloud SDK detected; pin to EU regions."
+
+  vercel:
+    name: Vercel
+    residency_tier: 3
+    eu_regions: ["fra1", "cdg1"]
+    dpa_url: https://vercel.com/legal/dpa
+    cost_band: medium
+    ops_burden: low
+    fits:
+      - next_fullstack
+      - static_spa
+      - serverless_api_routes
+    not_fit:
+      - streamlit
+      - celery_workers
+      - long_running_workers
+      - gpu_inference
+      - python_api_heavy
+    notes: "US company; pin functions to fra1/cdg1. Control plane is US-operated."
+
+  fly_io:
+    name: Fly.io
+    residency_tier: 3
+    eu_regions: ["ams", "fra", "cdg"]
+    dpa_url: https://fly.io/legal/privacy-policy/
+    cost_band: medium
+    ops_burden: medium
+    fits:
+      - docker
+      - python_api
+      - streamlit
+      - split_monorepo
+    not_fit:
+      - managed_nextjs_zero_config
+    notes: "US company; deploy to ams/fra for EU workloads. Control plane is US-operated."
+
+  railway:
+    name: Railway
+    residency_tier: 3
+    eu_regions: ["europe-west4-drams3a"]
+    dpa_url: https://railway.com/legal/dpa
+    cost_band: medium
+    ops_burden: low
+    fits:
+      - docker
+      - python_api
+      - split_monorepo
+      - quick_prototype
+    not_fit:
+      - streamlit
+      - celery_workers
+      - eu_native_required
+    notes: "US company; NOT EU by default. Pin region to europe-west4-drams3a (Amsterdam) per service."

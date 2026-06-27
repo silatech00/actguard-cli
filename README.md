@@ -11,7 +11,7 @@ Covers: **AI Act**, **NIS2**, **DSA**, **GDPR**, and **Data Act**.
 ```bash
 pip install actguard
 # or from source:
-git clone https://github.com/YOUR_USER/actguard-cli.git
+git clone https://github.com/silatech00/actguard-cli.git
 cd actguard-cli
 python -m venv venv && source venv/bin/activate
 pip install -e ".[dev]"

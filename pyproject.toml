@@ -10,7 +10,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.11"
-authors = [{ name = "ActGuard contributors" }]
+authors = [{ name = "SILA TECH" }]
 keywords = ["eu", "compliance", "ai-act", "gdpr", "legaltech", "cli"]
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -39,9 +39,9 @@ dependencies = [
 dev = ["pytest>=8.0.0"]
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USER/actguard-cli"
-Repository = "https://github.com/YOUR_USER/actguard-cli"
-Documentation = "https://github.com/YOUR_USER/actguard-cli#readme"
+Homepage = "https://github.com/silatech00/actguard-cli"
+Repository = "https://github.com/silatech00/actguard-cli"
+Documentation = "https://github.com/silatech00/actguard-cli#readme"
 
 [project.scripts]
 actguard = "actguard.cli:main"
